@@ -1,17 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import theme from "./constants/MuiTheme";
+import { ThemeProvider } from "@material-ui/core/styles/";
+import WebFontLoader from "webfontloader";
 
-ReactDOM.render(
-  <React.StrictMode>
+WebFontLoader.load({
+  google: {
+    families: ["Roboto:300,400,500,700", "Chelsea+Market", "Inconsolata"],
+  },
+});
+
+const WrappedApp = () => (
+  <ThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </ThemeProvider>
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<WrappedApp />, document.getElementById("root"));
