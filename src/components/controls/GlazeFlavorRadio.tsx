@@ -12,8 +12,8 @@ interface ColorRadioI {
   color?: string;
   setColor?: (color: string) => void;
 }
-const GlazeColorRadio = ({ color, setColor }: ColorRadioI) => {
-  const options = donutOptions.glazeColor;
+const GlazeFlavorRadio = ({ color, setColor }: ColorRadioI) => {
+  const options = donutOptions.glazeFlavor;
   return (
     <FormControl>
       <FormLabel>Glaze</FormLabel>
@@ -39,4 +39,4 @@ const GlazeColorRadio = ({ color, setColor }: ColorRadioI) => {
   );
 };
 
-export default GlazeColorRadio;
+export default GlazeFlavorRadio;

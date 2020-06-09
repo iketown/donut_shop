@@ -71,13 +71,13 @@ const Donut = ({
   selected,
   onClick = () => console.log("clicked donut"),
   sprinkles,
-  glazeColor,
+  glazeFlavor,
   rotation,
   size = 100,
   id,
 }: {
   frostingColor?: string;
-  glazeColor?: string;
+  glazeFlavor?: string;
   selected?: boolean;
   onClick?: () => void;
   sprinkles?: boolean;
@@ -107,7 +107,7 @@ const Donut = ({
         <Frosting color={frostingColor} />
       </div>
       <div className="ingredient">
-        <Glaze {...{ glazeColor }} />
+        <Glaze {...{ glazeFlavor }} />
       </div>
       {sprinkles && (
         <div className="ingredient" data-testid="sprinkles">

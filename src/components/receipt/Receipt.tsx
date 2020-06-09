@@ -21,9 +21,9 @@ const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
     let price = prices.donut;
     const sprinklePrice = prices.sprinkles;
     if (donut.sprinkles) price += sprinklePrice;
-    const { frostingColor, glazeColor, sprinkles } = donut;
+    const { frostingColor, glazeFlavor, sprinkles } = donut;
     let description = frostingColor;
-    if (glazeColor !== "none") description += ` ${glazeColor}`;
+    if (glazeFlavor !== "none") description += ` ${glazeFlavor}`;
     if (sprinkles) description += ` spkls(+$${sprinklePrice})`;
     return { ...donut, price, description };
   });

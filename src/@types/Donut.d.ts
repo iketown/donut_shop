@@ -1,7 +1,7 @@
 type Donut = {
   id?: string;
   frostingColor: string;
-  glazeColor: string;
+  glazeFlavor: string;
   sprinkles: boolean;
   description?: string;
   price?: number;

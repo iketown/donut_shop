@@ -1,7 +1,7 @@
 import React from "react";
 import Donut from "../Donut";
 import FrostingColorSelector from "./FrostingColorSelector";
-import GlazeColorRadio from "./GlazeColorRadio";
+import GlazeFlavorRadio from "./GlazeFlavorRadio";
 import SprinklesCheckbox from "./SprinklesCheckbox";
 import styled from "styled-components";
 import { Box, Button } from "@material-ui/core";
@@ -43,7 +43,7 @@ export const DonutControls = () => {
         <SprinklesCheckbox />
       </Box>
       <Box mb={2}>
-        <GlazeColorRadio />
+        <GlazeFlavorRadio />
       </Box>
     </Container>
   );

@@ -1,6 +1,6 @@
 export const fakeDonut = {
   frostingColor: "blue",
-  glazeColor: "chocolate",
+  glazeFlavor: "chocolate",
   sprinkles: true,
   id: "donut1",
 };
@@ -11,7 +11,7 @@ export const fakeBox: Box = {
     fakeDonut,
     {
       frostingColor: "blue",
-      glazeColor: "strawberry",
+      glazeFlavor: "strawberry",
       sprinkles: true,
       id: "donut2",
     },
