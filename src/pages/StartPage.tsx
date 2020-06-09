@@ -1,5 +1,11 @@
-import { Container, Grid, GridProps, Typography } from "@material-ui/core";
-import React from "react";
+import {
+  Container,
+  Grid,
+  GridProps,
+  Typography,
+  Button,
+} from "@material-ui/core";
+import React, { useState } from "react";
 
 import Donut from "../components/Donut";
 import DonutBox from "../components/DonutBox";
@@ -8,6 +14,7 @@ import InfoPanel from "../components/infoPanel/InfoPanel";
 import OrderBoard from "../components/orderBoard/OrderBoard";
 import Receipt from "../components/receipt/Receipt";
 import { fakeBox, fakeDonut } from "../constants/fakeInfo";
+import { getRandomDonut } from "../constants/donutOptions";
 
 const StartPage = () => {
   const gridItemProps: GridProps = {
@@ -20,12 +27,23 @@ const StartPage = () => {
     direction: "column",
     alignItems: "center",
   };
+  const [donut, setDonut] = useState(getRandomDonut());
+  const [selected, setSelected] = useState(false);
   return (
     <Container style={{ marginTop: "1rem" }}>
       <Grid container spacing={4}>
         <Grid {...gridItemProps}>
           <Title>Donut</Title>
-          <Donut frostingColor="blue" sprinkles={true} />
+          <Donut
+            {...donut}
+            selected={selected}
+            onClick={() => setSelected((old) => !old)}
+          />
+          <p />
+          <Button onClick={() => setDonut(getRandomDonut())} variant="outlined">
+            random
+          </Button>
+          <pre>{JSON.stringify(donut, null, 2)}</pre>
         </Grid>
         <Grid {...gridItemProps}>
           <Title>Donut Controls</Title>

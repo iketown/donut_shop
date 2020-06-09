@@ -1,7 +1,7 @@
 export const fakeDonut = {
-  frostingColor: "orange",
+  frostingColor: "blue",
   glazeColor: "chocolate",
-  sprinkles: false,
+  sprinkles: true,
   id: "donut1",
 };
 
