@@ -1,8 +1,8 @@
 import React from "react";
 
 import LocalStatePage from "../pages/LocalStatePage";
-import ContextPage from "../pages/ContextPage";
 import ComingSoon from "../pages/ComingSoon";
+import SkeletonPage from "../pages/SkeletonPage";
 
 export const routes: {
   display: string;
@@ -15,7 +15,7 @@ export const routes: {
     component: <LocalStatePage />,
   },
   { display: "Reducer", path: "/reducer", component: <ComingSoon /> },
-  { display: "Context", path: "/context", component: <ContextPage /> },
-  { display: "Redux", path: "/redux", component: <ComingSoon /> },
-  { display: "Recoil", path: "/recoil", component: <ComingSoon /> },
+  { display: "Context", path: "/context", component: <SkeletonPage /> },
+  { display: "Redux", path: "/redux", component: <SkeletonPage /> },
+  { display: "Recoil", path: "/recoil", component: <SkeletonPage /> },
 ];

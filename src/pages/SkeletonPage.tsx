@@ -1,23 +1,30 @@
-import React, { useState } from "react";
 import { Button } from "@material-ui/core";
 import { ChevronRight } from "@material-ui/icons";
-import OrdersDrawer from "../components/OrdersDrawer";
-import OrderBoard from "../components/orderBoard/OrderBoard";
-import DonutControls from "../components/controls/DonutControls";
-import InfoPanel from "../components/infoPanel/InfoPanel";
-import DonutBox from "../components/DonutBox";
+import React, { useState } from "react";
+
 import BoxButtons from "../components/BoxButtons";
+import DonutControls from "../components/controls/DonutControls";
+import Donut from "../components/Donut";
+import DonutBox from "../components/DonutBox";
+import InfoPanel from "../components/infoPanel/InfoPanel";
+import GridColumn from "../components/layout/GridColumn";
+import GridContainer from "../components/layout/GridContainer";
+import OrderBoard from "../components/orderBoard/OrderBoard";
+import OrdersDrawer from "../components/OrdersDrawer";
 import Receipt from "../components/receipt/Receipt";
 import { fakeBox } from "../constants/fakeInfo";
-import Donut from "../components/Donut";
-import GridContainer from "../components/layout/GridContainer";
-import GridColumn from "../components/layout/GridColumn";
 
-const ContextPage = () => {
+const SkeletonPage = () => {
   const [showOrders, setShowOrders] = useState(false);
   return (
     <>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          position: "fixed",
+        }}
+      >
         <Button color="primary" onClick={() => setShowOrders(!showOrders)}>
           Orders
           <ChevronRight />
@@ -45,4 +52,4 @@ const ContextPage = () => {
   );
 };
 
-export default ContextPage;
+export default SkeletonPage;

@@ -6,8 +6,9 @@ import SprinklesCheckbox from "./SprinklesCheckbox";
 import styled from "styled-components";
 import { Box, Button } from "@material-ui/core";
 import oldWood from "../../images/oldwood.jpg";
+import QuantityButtons from "./QuantityButtons";
+
 export const Container = styled.div<{ disabled?: boolean }>`
-  margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,7 +33,33 @@ export const Container = styled.div<{ disabled?: boolean }>`
   }
 `;
 
-export const DonutControls = () => {
+interface DonutControlsI {
+  quantity?: number;
+  setQuantity?: React.Dispatch<React.SetStateAction<number>>;
+  maxQuantity?: number;
+  disableButtons?: boolean;
+  handleAddToBox?: () => void;
+  frostingColor?: string;
+  setFrostingColor?: (color: string) => void;
+  glazeFlavor?: string;
+  setGlazeFlavor?: (flavor: string) => void;
+  sprinkles?: boolean;
+  setSprinkles?: (sprinkles: boolean) => void;
+}
+
+export const DonutControls = ({
+  quantity,
+  setQuantity,
+  maxQuantity,
+  disableButtons,
+  handleAddToBox,
+  frostingColor,
+  setFrostingColor,
+  sprinkles,
+  setSprinkles,
+  glazeFlavor,
+  setGlazeFlavor,
+}: DonutControlsI) => {
   return (
     <Container data-testid="control-panel">
       <Box mb={4}>
@@ -41,14 +68,25 @@ export const DonutControls = () => {
       <Box mb={2}>
         <Button>random</Button>
       </Box>
+      <Button
+        disabled={disableButtons}
+        onClick={() => handleAddToBox && handleAddToBox()}
+        variant="contained"
+        color="primary"
+      >
+        Add {quantity ? quantity : ""} to Box
+      </Button>
       <Box mb={2}>
-        <FrostingColorSelector />
+        <QuantityButtons {...{ quantity, setQuantity, maxQuantity }} />
       </Box>
       <Box mb={2}>
-        <SprinklesCheckbox />
+        <FrostingColorSelector {...{ frostingColor, setFrostingColor }} />
       </Box>
       <Box mb={2}>
-        <GlazeFlavorRadio />
+        <SprinklesCheckbox {...{ sprinkles, setSprinkles }} />
+      </Box>
+      <Box mb={2}>
+        <GlazeFlavorRadio {...{ glazeFlavor, setGlazeFlavor }} />
       </Box>
     </Container>
   );

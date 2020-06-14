@@ -10,6 +10,7 @@ const StyledBox = styled.div<{ size: number }>`
   width: ${(p) => p.size}px;
   box-shadow: 8px 7px 8px #0000004d;
   border: 1px solid ${pink[200]};
+  border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);

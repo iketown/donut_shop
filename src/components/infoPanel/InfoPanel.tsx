@@ -7,6 +7,7 @@ const PanelContents = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 1rem 0;
   .buttons {
     display: flex;
     flex-direction: column;
@@ -27,7 +28,7 @@ const InfoPanel = ({ donut }: InfoPanelI) => {
   const handleCancel = () => {};
 
   return (
-    <Collapse style={{ margin: "1rem", width: 250 }} in={!!donut}>
+    <Collapse style={{ width: 250 }} in={!!donut}>
       <PanelContents>
         {!!donut ? <Donut size={150} /> : <div />}
         <div className="buttons">

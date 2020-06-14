@@ -9,28 +9,28 @@ import {
 import { donutOptions } from "../../constants/donutOptions";
 
 interface ColorRadioI {
-  color?: string;
-  setColor?: (color: string) => void;
+  glazeFlavor?: string;
+  setGlazeFlavor?: (color: string) => void;
 }
-const GlazeFlavorRadio = ({ color, setColor }: ColorRadioI) => {
+const GlazeFlavorRadio = ({ glazeFlavor, setGlazeFlavor }: ColorRadioI) => {
   const options = donutOptions.glazeFlavor;
   return (
     <FormControl>
       <FormLabel>Glaze</FormLabel>
       <RadioGroup
-        value={color}
-        onChange={(e, val) => setColor && setColor(val)}
+        value={glazeFlavor}
+        onChange={(e, val) => setGlazeFlavor && setGlazeFlavor(val)}
         aria-label="position"
         name="position"
         defaultValue="top"
       >
-        {options?.map((flavor: string) => {
+        {options?.map((gFlavor: string) => {
           return (
             <FormControlLabel
-              key={flavor}
-              value={flavor}
+              key={gFlavor}
+              value={gFlavor}
               control={<Radio color="primary" />}
-              label={flavor}
+              label={gFlavor}
             />
           );
         })}

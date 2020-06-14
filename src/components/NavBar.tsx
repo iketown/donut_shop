@@ -60,7 +60,7 @@ const NavBar = () => {
     setAnchorEl(null);
   };
   return (
-    <AppBar position="static">
+    <AppBar position="sticky">
       <Toolbar>
         <StyledBarContents>
           <Link to="/">

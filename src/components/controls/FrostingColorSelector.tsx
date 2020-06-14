@@ -4,14 +4,14 @@ import React from "react";
 import { donutOptions } from "../../constants/donutOptions";
 
 const FrostingColorSelector = ({
-  color,
-  setColor,
+  frostingColor,
+  setFrostingColor,
 }: {
-  color?: string;
-  setColor?: (color: string) => void;
+  frostingColor?: string;
+  setFrostingColor?: (color: string) => void;
 }) => {
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setColor && setColor(event.target.value as string);
+    setFrostingColor && setFrostingColor(event.target.value as string);
   };
   const options = donutOptions.frostingColor;
   return (
@@ -21,7 +21,7 @@ const FrostingColorSelector = ({
         <Select
           fullWidth
           id="color-select"
-          value={color || ""}
+          value={frostingColor || ""}
           onChange={handleChange}
         >
           {options.map((color) => (
