@@ -15,6 +15,7 @@ import Receipt from "../components/receipt/Receipt";
 import { fakeBox } from "../constants/fakeInfo";
 
 const SkeletonPage = () => {
+  //  Dont change this component - make a copy and change the copy.
   const [showOrders, setShowOrders] = useState(false);
   return (
     <>

@@ -1,12 +1,13 @@
+import { Box, Button } from "@material-ui/core";
 import React from "react";
+import styled from "styled-components";
+
+import oldWood from "../../images/oldwood.jpg";
 import Donut from "../Donut";
 import FrostingColorSelector from "./FrostingColorSelector";
 import GlazeFlavorRadio from "./GlazeFlavorRadio";
-import SprinklesCheckbox from "./SprinklesCheckbox";
-import styled from "styled-components";
-import { Box, Button } from "@material-ui/core";
-import oldWood from "../../images/oldwood.jpg";
 import QuantityButtons from "./QuantityButtons";
+import SprinklesCheckbox from "./SprinklesCheckbox";
 
 export const Container = styled.div<{ disabled?: boolean }>`
   display: flex;
@@ -39,6 +40,7 @@ interface DonutControlsI {
   maxQuantity?: number;
   disableButtons?: boolean;
   handleAddToBox?: () => void;
+  handleRandom?: () => void;
   frostingColor?: string;
   setFrostingColor?: (color: string) => void;
   glazeFlavor?: string;
@@ -53,6 +55,7 @@ export const DonutControls = ({
   maxQuantity,
   disableButtons,
   handleAddToBox,
+  handleRandom,
   frostingColor,
   setFrostingColor,
   sprinkles,
@@ -63,10 +66,10 @@ export const DonutControls = ({
   return (
     <Container data-testid="control-panel">
       <Box mb={4}>
-        <Donut size={120} />
+        <Donut size={120} {...{ frostingColor, glazeFlavor, sprinkles }} />
       </Box>
       <Box mb={2}>
-        <Button>random</Button>
+        <Button onClick={handleRandom}>random</Button>
       </Box>
       <Button
         disabled={disableButtons}
