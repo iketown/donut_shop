@@ -14,7 +14,19 @@ const ItemsGrid = styled.div`
   grid-gap: 5px;
 `;
 
-const Receipt = ({ box, children }: { box?: Box; children?: any }) => {
+const PaidText = styled.div`
+  position: absolute;
+  font-weight: bold;
+  top: 65%;
+  left: 50%;
+  color: red;
+  font-size: 2.5rem;
+  text-align: center;
+  transform: translate(-50%, -50%) rotate(-20deg);
+  opacity: 0.5;
+`;
+
+const Receipt: React.FC<{ box?: Box }> = ({ box }) => {
   const donuts = box?.donuts;
 
   const donutsWithInfo = donuts?.map((donut) => {
@@ -94,7 +106,12 @@ const Receipt = ({ box, children }: { box?: Box; children?: any }) => {
           />
         </ItemsGrid>
       </Content>
-      {children}
+      {box?.paid && (
+        <PaidText>
+          <div>PAID</div>
+          <div>{box.paid}</div>
+        </PaidText>
+      )}
     </ReceiptBackground>
   );
 };
