@@ -73,7 +73,7 @@ const Donut = ({
   sprinkles,
   glazeFlavor,
   rotation,
-  size = 100,
+  size = 83,
   id,
 }: {
   frostingColor?: string;

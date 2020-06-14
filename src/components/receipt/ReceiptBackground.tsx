@@ -31,7 +31,7 @@ const StyledEdge = styled.div<{ flip?: boolean }>`
     ),
     url(${paper});
   background-size: cover;
-  top: ${(p) => (p.flip ? "100%" : `-${ridgeHeight}px`)};
+  top: ${(p) => (p.flip ? "calc(100% - 0.5px)" : `-${ridgeHeight - 0.5}px`)};
   left: 0;
   right: 0;
   width: 250px;

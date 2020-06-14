@@ -16,7 +16,7 @@ const StyledBox = styled.div<{ size: number }>`
   padding: 5px;
 `;
 const DonutBox = ({
-  size = 300,
+  size = 250,
   children,
 }: {
   size?: number;

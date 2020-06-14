@@ -1,6 +1,7 @@
 import React from "react";
 import { Container } from "../controls/DonutControls";
 import styled from "styled-components";
+import { cyan, pink } from "@material-ui/core/colors";
 import {
   List,
   ListItem,
@@ -9,44 +10,40 @@ import {
 } from "@material-ui/core";
 import { Dispatch } from "redux";
 
-const OrderContainer = styled(Container)`
+const OrderContainer = styled.div`
+  padding: 1rem;
+  min-width: 10rem;
   .title {
     text-align: center;
     font-family: "Chelsea Market", cursive;
-    font-size: 27px;
-    color: #000000b3;
+    font-size: 24px;
+    color: ${pink[100]};
   }
 `;
 
 const OrderBoard = ({
-  savedBoxes,
   openOrders,
   closedOrders,
   dispatch,
 }: {
-  savedBoxes?: { [id: string]: Box };
   openOrders?: { [id: string]: Box };
   closedOrders?: { [id: string]: Box };
   dispatch?: Dispatch<any>;
 }) => {
-  const getOrderList = (header: string, boxes: { [id: string]: Box }) => (
-    <>
-      <div className="title">{header}</div>
-      <List dense>
-        {boxes &&
-          Object.entries(boxes).map(([id, box]) => {
-            return <OrderListItem key={id} box={box} dispatch={dispatch} />;
-          })}
-      </List>
-    </>
+  const getOrderList = (boxes: { [id: string]: Box }) => (
+    <List dense>
+      {boxes &&
+        Object.entries(boxes).map(([id, box]) => {
+          return <OrderListItem key={id} box={box} dispatch={dispatch} />;
+        })}
+    </List>
   );
   return (
     <OrderContainer data-testid="order-board">
-      {savedBoxes && getOrderList("Orders", savedBoxes)}
-      {openOrders && getOrderList("Open", openOrders)}
-      {closedOrders && getOrderList("Closed", closedOrders)}
-
-      {/* <small>renders: {renderCount.current++}</small> */}
+      <div className="title">Open</div>
+      {openOrders && getOrderList(openOrders)}
+      <div className="title">Closed</div>
+      {closedOrders && getOrderList(closedOrders)}
     </OrderContainer>
   );
 };
@@ -64,7 +61,9 @@ const OrderListItem = ({
   return (
     <ListItem button onClick={handleSelect} data-testid={`order-${box.id}`}>
       <ListItemAvatar>
-        <b>{box.id}</b>
+        <div>
+          #<b>{box.id}</b>
+        </div>
       </ListItemAvatar>
       <ListItemText
         primary={`${box.donuts.length} ${

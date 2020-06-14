@@ -1,13 +1,12 @@
 import {
   AppBar,
-  Tab,
-  Tabs,
   Toolbar,
   IconButton,
   Hidden,
   Menu,
   MenuItem,
   Typography,
+  Button,
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { useHistory, useLocation, Link } from "react-router-dom";
@@ -22,22 +21,32 @@ const StyledBarContents = styled.div`
   align-items: center;
   flex-grow: 1;
   color: white;
+  a {
+    text-decoration: none;
+  }
   .links {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
     align-items: center;
+    button {
+      margin-left: 1rem;
+    }
   }
   .title {
     font-family: "Chelsea Market", cursive;
-    font-size: 40px;
+    font-size: 25px;
     color: white;
     text-decoration: none;
+    @media screen and (min-width: 960px) {
+      font-size: 40px;
+    }
   }
 `;
 
 const NavBar = () => {
   const { push } = useHistory();
   const location = useLocation();
+
   const handleNav = (path: string) => {
     push(path);
   };
@@ -54,64 +63,69 @@ const NavBar = () => {
     <AppBar position="static">
       <Toolbar>
         <StyledBarContents>
-          <Link to="/" className="title">
-            Donut Shop
-          </Link>
-          <Hidden smDown>
-            <>
-              <Tabs
-                value={location.pathname}
-                onChange={(e, val) => handleNav(val)}
-                className="links"
-              >
-                {routes.map(({ display, path }) => {
-                  return <Tab value={path} label={display} key={path}></Tab>;
-                })}
-              </Tabs>
-            </>
-          </Hidden>
-          <Hidden mdUp>
-            <Typography variant="h5">
-              {
-                routes.find((route) => route.path === location.pathname)
-                  ?.display
-              }
+          <Link to="/">
+            <Typography className="title" noWrap>
+              Donut Shop
             </Typography>
-
-            <IconButton onClick={handleMenu} color="inherit">
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={open}
-              onClose={handleClose}
-            >
+          </Link>
+          <div className="links">
+            <Hidden smDown>
               {routes.map(({ display, path }) => {
                 return (
-                  <MenuItem
+                  <Button
+                    color="inherit"
+                    onClick={() => handleNav(path)}
                     key={path}
-                    selected={path === location.pathname}
-                    onClick={() => {
-                      handleNav(path);
-                      handleClose();
-                    }}
+                    variant={path === location.pathname ? "outlined" : "text"}
                   >
                     {display}
-                  </MenuItem>
+                  </Button>
                 );
               })}
-            </Menu>
-          </Hidden>
+            </Hidden>
+            <Hidden mdUp>
+              <Typography variant="body1">
+                {
+                  routes.find((route) => route.path === location.pathname)
+                    ?.display
+                }
+              </Typography>
+
+              <IconButton onClick={handleMenu} color="inherit">
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={open}
+                onClose={handleClose}
+              >
+                {routes.map(({ display, path }) => {
+                  return (
+                    <MenuItem
+                      key={path}
+                      selected={path === location.pathname}
+                      onClick={() => {
+                        handleNav(path);
+                        handleClose();
+                      }}
+                    >
+                      {display}
+                    </MenuItem>
+                  );
+                })}
+              </Menu>
+            </Hidden>
+          </div>
         </StyledBarContents>
       </Toolbar>
     </AppBar>

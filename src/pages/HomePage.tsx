@@ -25,7 +25,7 @@ const HomePage = () => {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={4}
               container
               justify="center"
               alignItems="center"

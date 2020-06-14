@@ -5,20 +5,25 @@ import GlazeFlavorRadio from "./GlazeFlavorRadio";
 import SprinklesCheckbox from "./SprinklesCheckbox";
 import styled from "styled-components";
 import { Box, Button } from "@material-ui/core";
-import woodBG from "../../images/wood-bg.jpg";
-
+import oldWood from "../../images/oldwood.jpg";
 export const Container = styled.div<{ disabled?: boolean }>`
   margin: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: linear-gradient(#ffffff55, #ffaac73b 80%), url(${woodBG});
-  background-size: cover;
-  padding: 2rem 1rem;
+  background-image: linear-gradient(
+      to bottom left,
+      #ffdde98c,
+      #ffffff75,
+      #99e2db57
+    ),
+    url(${oldWood});
+  background-size: 100%;
+  background-repeat: repeat-y;
+  padding: 1rem;
   border-radius: 1rem;
   max-width: fit-content;
-  width: 150px;
   transition: 0.3s box-shadow, opacity;
   box-shadow: 3px 3px 3px #00000038;
   opacity: ${(p) => (p.disabled ? 0.5 : 1)};
@@ -31,7 +36,7 @@ export const DonutControls = () => {
   return (
     <Container data-testid="control-panel">
       <Box mb={4}>
-        <Donut />
+        <Donut size={120} />
       </Box>
       <Box mb={2}>
         <Button>random</Button>

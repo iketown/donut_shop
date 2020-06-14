@@ -14,10 +14,10 @@ const ItemsGrid = styled.div`
   grid-gap: 5px;
 `;
 
-const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
-  const donuts = box.donuts;
+const Receipt = ({ box, children }: { box?: Box; children?: any }) => {
+  const donuts = box?.donuts;
 
-  const donutsWithInfo = donuts.map((donut) => {
+  const donutsWithInfo = donuts?.map((donut) => {
     let price = prices.donut;
     const sprinklePrice = prices.sprinkles;
     if (donut.sprinkles) price += sprinklePrice;
@@ -28,7 +28,7 @@ const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
     return { ...donut, price, description };
   });
 
-  const donutObj = donutsWithInfo.reduce((obj: DonutReceiptObj, donut) => {
+  const donutObj = donutsWithInfo?.reduce((obj: DonutReceiptObj, donut) => {
     const { description, price } = donut;
     if (obj[description]) {
       obj[description].quantity++;
@@ -39,11 +39,14 @@ const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
     return obj;
   }, {});
 
-  const totalPrice = Object.values(donutObj).reduce((sum, info) => {
-    const { price } = info;
-    sum += price;
-    return sum;
-  }, 0);
+  const totalPrice =
+    (donutObj &&
+      Object.values(donutObj).reduce((sum, info) => {
+        const { price } = info;
+        sum += price;
+        return sum;
+      }, 0)) ||
+    0;
 
   const Content = styled.div`
     min-height: 200px;
@@ -66,18 +69,19 @@ const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
         >
           Donut Shop
         </div>
-        <div style={{ textAlign: "center" }}>order # {box.id}</div>
+        <div style={{ textAlign: "center" }}>order # {box?.id || "none"}</div>
         <Divider />
         <ItemsGrid>
-          {Object.entries(donutObj).map(([description, info]) => {
-            const { quantity, price } = info;
-            return (
-              <ReceiptLineItem
-                key={description}
-                {...{ description, price, quantity }}
-              />
-            );
-          })}
+          {donutObj &&
+            Object.entries(donutObj).map(([description, info]) => {
+              const { quantity, price } = info;
+              return (
+                <ReceiptLineItem
+                  key={description}
+                  {...{ description, price, quantity }}
+                />
+              );
+            })}
           <Divider />
           <ReceiptLineItem description="subtotal" price={totalPrice} />
           <ReceiptLineItem
@@ -95,7 +99,7 @@ const ReceiptClip = ({ box, children }: { box: Box; children?: any }) => {
   );
 };
 
-export default ReceiptClip;
+export default Receipt;
 
 const Divider = () => (
   <div style={{ textAlign: "center", opacity: 0.5, gridColumn: "1/-1" }}>
