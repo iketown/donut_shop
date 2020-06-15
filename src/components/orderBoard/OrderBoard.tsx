@@ -1,14 +1,12 @@
 import React from "react";
-import { Container } from "../controls/DonutControls";
 import styled from "styled-components";
-import { cyan, pink } from "@material-ui/core/colors";
+import { pink } from "@material-ui/core/colors";
 import {
   List,
   ListItem,
   ListItemText,
   ListItemAvatar,
 } from "@material-ui/core";
-import { Dispatch } from "redux";
 
 const OrderContainer = styled.div`
   padding: 1rem;

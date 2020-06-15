@@ -6,7 +6,6 @@ import {
   DialogContentText,
   DialogActions,
   Button,
-  Typography,
 } from "@material-ui/core";
 
 interface DeleteBoxModalI {

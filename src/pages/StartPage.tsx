@@ -1,10 +1,4 @@
-import {
-  Container,
-  Grid,
-  GridProps,
-  Typography,
-  Button,
-} from "@material-ui/core";
+import { Container, Grid, GridProps, Typography } from "@material-ui/core";
 import React from "react";
 
 import Donut from "../components/Donut";

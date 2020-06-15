@@ -1,5 +1,5 @@
 import React from "react";
-import { Drawer, Hidden, Button } from "@material-ui/core";
+import { Drawer, Button } from "@material-ui/core";
 import { ChevronLeft } from "@material-ui/icons";
 import styled from "styled-components";
 import oldwood from "../images/oldwood.jpg";
