@@ -2,6 +2,7 @@ import React from "react";
 
 import LocalStatePage from "../pages/LocalStatePage";
 import SkeletonPage from "../pages/SkeletonPage";
+
 export const routes: {
   display: string;
   path: string;

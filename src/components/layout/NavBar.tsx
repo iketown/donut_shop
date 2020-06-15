@@ -12,7 +12,7 @@ import React, { useState } from "react";
 import { useHistory, useLocation, Link } from "react-router-dom";
 import styled from "styled-components";
 import { Menu as MenuIcon } from "@material-ui/icons";
-import { routes } from "../constants/routes";
+import { routes } from "../../constants/routes";
 //
 //
 const StyledBarContents = styled.div`

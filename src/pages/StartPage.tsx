@@ -49,11 +49,13 @@ const StartPage = () => {
         <Grid {...gridItemProps}>
           <Title>Order Board</Title>
           <OrderBoard
-            openOrders={{
-              "0001": fakeBox,
-            }}
-            closedOrders={{
-              "0001": fakeBox,
+            orders={{
+              paid: {
+                "0001": fakeBox,
+              },
+              unpaid: {
+                "0001": fakeBox,
+              },
             }}
           />
         </Grid>

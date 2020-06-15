@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import styled from "styled-components";
 
-import NavBar from "./components/NavBar";
+import NavBar from "./components/layout/NavBar";
 import { routes } from "./constants/routes";
 import bgSprinkles from "./images/backgroundSprinkles.jpg";
 import Home from "./pages/HomePage";

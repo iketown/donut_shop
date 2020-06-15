@@ -1,6 +1,6 @@
 type OrderState = {
-  openOrders: { [id: string]: Box };
-  closedOrders: { [id: string]: Box };
+  paid: { [id: string]: Box };
+  unpaid: { [id: string]: Box };
 };
 
 interface OrderAction {

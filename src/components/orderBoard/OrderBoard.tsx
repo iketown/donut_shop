@@ -22,44 +22,44 @@ const OrderContainer = styled.div`
 `;
 
 const OrderBoard = ({
-  openOrders,
-  closedOrders,
-  dispatch,
+  orders,
+  onClickOrder,
 }: {
-  openOrders?: { [id: string]: Box };
-  closedOrders?: { [id: string]: Box };
-  dispatch?: Dispatch<any>;
+  onClickOrder?: (orderId: string) => void;
+  orders?: OrderState;
 }) => {
+  const paid = orders?.paid;
+  const unpaid = orders?.unpaid;
   const getOrderList = (boxes: { [id: string]: Box }) => (
     <List dense>
       {boxes &&
         Object.entries(boxes).map(([id, box]) => {
-          return <OrderListItem key={id} box={box} dispatch={dispatch} />;
+          const onClick = () => {
+            onClickOrder && onClickOrder(id);
+          };
+          return <OrderListItem key={id} box={box} onClick={onClick} />;
         })}
     </List>
   );
   return (
     <OrderContainer data-testid="order-board">
       <div className="title">Open</div>
-      {openOrders && getOrderList(openOrders)}
-      <div className="title">Closed</div>
-      {closedOrders && getOrderList(closedOrders)}
+      {unpaid && getOrderList(unpaid)}
+      <div className="title">Paid</div>
+      {paid && getOrderList(paid)}
     </OrderContainer>
   );
 };
 
 const OrderListItem = ({
   box,
-  dispatch,
+  onClick,
 }: {
   box: Box;
-  dispatch?: Dispatch;
+  onClick?: () => void;
 }) => {
-  const handleSelect = () => {
-    dispatch && dispatch({ type: "LOAD_BOX", payload: { box } });
-  };
   return (
-    <ListItem button onClick={handleSelect} data-testid={`order-${box.id}`}>
+    <ListItem button onClick={onClick} data-testid={`order-${box.id}`}>
       <ListItemAvatar>
         <div>
           #<b>{box.id}</b>
