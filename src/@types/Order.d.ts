@@ -11,5 +11,5 @@ interface OrderAction {
 interface OrderPayload {
   box?: Box;
   boxId?: string;
-  orders: OrderState;
+  orders?: OrderState;
 }
