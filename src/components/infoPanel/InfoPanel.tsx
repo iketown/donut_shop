@@ -23,6 +23,7 @@ interface InfoPanelI {
   boxIsFull?: boolean;
 }
 const InfoPanel = ({ donut }: InfoPanelI) => {
+  // dont edit this component
   const handleRemove = () => {};
   const handleDuplicate = () => {};
   const handleCancel = () => {};

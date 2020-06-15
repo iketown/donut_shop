@@ -53,6 +53,7 @@ const MidSection = styled.div`
 `;
 
 const ReceiptBackground: React.FC = ({ children }) => {
+  // dont edit this component
   return (
     <ShadowDiv>
       <MidSection>

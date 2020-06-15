@@ -21,6 +21,7 @@ const DeleteBoxModal = ({
   boxId,
   handleDelete,
 }: DeleteBoxModalI) => {
+  // dont edit this component
   const boxName = !boxId || boxId === "unsaved" ? "this box" : `box # ${boxId}`;
   return (
     <Dialog {...{ open, onClose }} data-testid="delete-dialog">

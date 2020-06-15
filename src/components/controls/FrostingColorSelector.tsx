@@ -10,6 +10,7 @@ const FrostingColorSelector = ({
   frostingColor?: string;
   setFrostingColor?: (color: string) => void;
 }) => {
+  // dont edit this component
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setFrostingColor && setFrostingColor(event.target.value as string);
   };

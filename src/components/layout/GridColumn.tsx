@@ -18,6 +18,7 @@ const GridColumn = ({
   children?: any;
   rightSide?: boolean;
 }) => {
+  // dont edit this component
   return (
     <Grid {...gridItemProps} style={{ marginTop: "2rem" }}>
       {children}

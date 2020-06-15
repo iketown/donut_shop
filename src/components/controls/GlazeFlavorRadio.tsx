@@ -13,6 +13,7 @@ interface ColorRadioI {
   setGlazeFlavor?: (color: string) => void;
 }
 const GlazeFlavorRadio = ({ glazeFlavor, setGlazeFlavor }: ColorRadioI) => {
+  // dont edit this component
   const options = donutOptions.glazeFlavor;
   return (
     <FormControl>

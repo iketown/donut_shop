@@ -23,6 +23,8 @@ const DonutBox = ({
   size?: number;
   children?: JSX.Element[];
 }) => {
+  // dont edit this component
+
   return (
     <StyledBox data-testid="donut-box" size={size}>
       {children}

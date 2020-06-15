@@ -26,6 +26,7 @@ const OrderBoard = ({
   onClickOrder?: (orderId: string) => void;
   orders?: OrderState;
 }) => {
+  // dont edit this component
   const paid = orders?.paid;
   const unpaid = orders?.unpaid;
   const getOrderList = (boxes: { [id: string]: Box }) => (

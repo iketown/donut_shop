@@ -27,6 +27,7 @@ const PaidText = styled.div`
 `;
 
 const Receipt: React.FC<{ box?: Box }> = ({ box }) => {
+  // dont edit this component
   const donuts = box?.donuts;
 
   const donutsWithInfo = donuts?.map((donut) => {

@@ -26,6 +26,8 @@ const OrdersDrawer: React.FC<OrdersDrawerI> = ({
   setShowOrders,
   children,
 }: OrdersDrawerI) => {
+  // dont edit this component
+
   return (
     <Drawer
       anchor="left"

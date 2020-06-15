@@ -13,6 +13,7 @@ const QuantityButtons = ({
   setQuantity,
   maxQuantity,
 }: QuantityButtonsI) => {
+  // dont edit this component
   const handleChange = (delta: number) => {
     if (!quantity || !setQuantity) return;
     const newQuant = quantity + delta;

@@ -85,6 +85,7 @@ const Donut = ({
   size?: number;
   id?: string;
 }) => {
+  // dont edit this component
   let _rotation = useRef(Math.random() * 360);
   return (
     <DonutDiv

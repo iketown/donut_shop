@@ -63,6 +63,7 @@ export const DonutControls = ({
   glazeFlavor,
   setGlazeFlavor,
 }: DonutControlsI) => {
+  // dont edit this component directly.   make a wrapper.
   return (
     <Container data-testid="control-panel">
       <Box mb={4}>

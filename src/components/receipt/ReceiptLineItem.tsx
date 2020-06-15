@@ -11,6 +11,7 @@ const ReceiptLineItem = ({
   description,
   price,
 }: ReceiptLineItemI) => {
+  // dont edit this component
   return (
     <>
       <div style={{ gridColumn: "quantity" }}>{quantity}</div>

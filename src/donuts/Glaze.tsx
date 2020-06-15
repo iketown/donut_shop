@@ -8,6 +8,8 @@ export const glazeFlavors: { [color: string]: string } = {
   none: "",
 };
 function Glaze({ glazeFlavor }: { glazeFlavor?: string }) {
+  // dont edit this component
+
   if (glazeFlavor === "none") return null;
   return (
     <svg

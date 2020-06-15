@@ -9,6 +9,7 @@ const gridContainerProps: GridProps = {
 };
 
 const GridContainer: React.FC = ({ children }) => {
+  // dont edit this component
   return (
     <Container fixed maxWidth="sm">
       <Grid {...gridContainerProps}>{children}</Grid>

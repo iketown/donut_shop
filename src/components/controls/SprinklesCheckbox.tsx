@@ -6,6 +6,7 @@ interface SprinklesCBI {
   setSprinkles?: (chk: boolean) => void;
 }
 const SprinklesCheckbox = ({ sprinkles, setSprinkles }: SprinklesCBI) => {
+  // dont edit this component
   return (
     <FormControlLabel
       control={

@@ -9,6 +9,8 @@ export const frostingColors: { [color: string]: string[] } = {
 };
 
 function Frosting({ color }: { color?: string }) {
+  // dont edit this component
+
   const [color1, color2] =
     !!color && frostingColors[color]
       ? frostingColors[color]

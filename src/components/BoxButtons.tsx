@@ -17,6 +17,7 @@ const BoxButtons = ({
   handleDelete,
   box,
 }: BoxButtonsI) => {
+  // dont edit this component
   const [modalOpen, setModalOpen] = useState(false);
 
   const gridButtonStyle: GridProps = {
