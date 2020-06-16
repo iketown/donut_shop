@@ -25,10 +25,10 @@ test("sprinkles checkbox is working", () => {
     <DonutControlsLocal />
   );
   const sprinklesCheckbox = getByLabelText(/sprinkles/i);
-  const sprinkles = queryByTestId("sprinkles");
-  expect(sprinkles).toBeFalsy();
+
+  expect(queryByTestId("sprinkles")).toBeFalsy();
   user.click(sprinklesCheckbox);
-  expect(sprinkles).toBeTruthy();
+  expect(queryByTestId("sprinkles")).toBeTruthy();
   user.click(sprinklesCheckbox);
-  expect(sprinkles).toBeFalsy();
+  expect(queryByTestId("sprinkles")).toBeFalsy();
 });
