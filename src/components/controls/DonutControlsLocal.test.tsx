@@ -19,3 +19,16 @@ test("glaze radio buttons work", () => {
   user.click(noneRadio);
   expect(queryByTestId("glaze")).toBeFalsy();
 });
+
+test("sprinkles checkbox is working", () => {
+  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
+    <DonutControlsLocal />
+  );
+  const sprinklesCheckbox = getByLabelText(/sprinkles/i);
+  const sprinkles = queryByTestId("sprinkles");
+  expect(sprinkles).toBeFalsy();
+  user.click(sprinklesCheckbox);
+  expect(sprinkles).toBeTruthy();
+  user.click(sprinklesCheckbox);
+  expect(sprinkles).toBeFalsy();
+});
