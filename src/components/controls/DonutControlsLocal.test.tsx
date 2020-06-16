@@ -4,7 +4,7 @@ import user from "@testing-library/user-event";
 import DonutControlsLocal from "./DonutControlsLocal";
 
 test("glaze radio buttons work", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
+  const { getByLabelText, getByTestId, queryByTestId } = render(
     <DonutControlsLocal />
   );
   const chocolateRadio = getByLabelText(/chocolate/i);
@@ -21,9 +21,7 @@ test("glaze radio buttons work", () => {
 });
 
 test("sprinkles checkbox is working", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
-    <DonutControlsLocal />
-  );
+  const { getByLabelText, queryByTestId } = render(<DonutControlsLocal />);
   const sprinklesCheckbox = getByLabelText(/sprinkles/i);
 
   expect(queryByTestId("sprinkles")).toBeFalsy();
@@ -34,9 +32,7 @@ test("sprinkles checkbox is working", () => {
 });
 
 test("frosting select is working", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
-    <DonutControlsLocal />
-  );
+  const { getByLabelText, getByTestId } = render(<DonutControlsLocal />);
   const frostingSelect = getByLabelText(/frosting/i);
   const frosting = getByTestId("frosting");
   user.selectOptions(frostingSelect, "blue");

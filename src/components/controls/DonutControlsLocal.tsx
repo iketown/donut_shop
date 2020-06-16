@@ -1,19 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import DonutControls from "./DonutControls";
+import { useDonut } from "../../hooks/useDonut";
 
 const DonutControlsLocal = () => {
-  const [glazeFlavor, setGlazeFlavor] = useState("");
-  const [sprinkles, setSprinkles] = useState(false);
-  return (
-    <DonutControls
-      {...{
-        sprinkles,
-        setSprinkles,
-        glazeFlavor,
-        setGlazeFlavor,
-      }}
-    />
-  );
+  const donutFxns = useDonut();
+
+  return <DonutControls {...donutFxns} />;
 };
 
 export default DonutControlsLocal;
