@@ -32,3 +32,22 @@ test("sprinkles checkbox is working", () => {
   user.click(sprinklesCheckbox);
   expect(queryByTestId("sprinkles")).toBeFalsy();
 });
+
+test("frosting select is working", () => {
+  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
+    <DonutControlsLocal />
+  );
+  const frostingSelect = getByLabelText(/frosting/i);
+  const frosting = getByTestId("frosting");
+  user.selectOptions(frostingSelect, "blue");
+  expect(frosting).toHaveAttribute("color", "blue");
+
+  user.selectOptions(frostingSelect, "pink");
+  expect(frosting).toHaveAttribute("color", "pink");
+
+  user.selectOptions(frostingSelect, "orange");
+  expect(frosting).toHaveAttribute("color", "orange");
+
+  user.selectOptions(frostingSelect, "brown");
+  expect(frosting).toHaveAttribute("color", "brown");
+});
