@@ -7,6 +7,7 @@ export const glazeFlavors: { [color: string]: string } = {
   vanilla: yellow[100],
   none: "",
 };
+
 function Glaze({ glazeFlavor }: { glazeFlavor?: string }) {
   // dont edit this component
 
@@ -16,7 +17,9 @@ function Glaze({ glazeFlavor }: { glazeFlavor?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 188 188"
       data-testid="glaze"
+      // test for this 👇👇
       color={glazeFlavor}
+      // test for this 👆👆
     >
       <g fill="none" fillRule="evenodd" stroke="none" strokeWidth="1">
         <path

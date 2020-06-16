@@ -9,6 +9,8 @@ import GlazeFlavorRadio from "./GlazeFlavorRadio";
 import QuantityButtons from "./QuantityButtons";
 import SprinklesCheckbox from "./SprinklesCheckbox";
 
+// !! dont edit this component directly.   make a wrapper.
+
 export const Container = styled.div<{ disabled?: boolean }>`
   display: flex;
   justify-content: center;

@@ -10,13 +10,20 @@ export const frostingColors: { [color: string]: string[] } = {
 
 function Frosting({ color }: { color?: string }) {
   // dont edit this component
+  let color1 = "gray";
+  let color2 = "lightgray";
+  if (!!color && frostingColors[color]) {
+    [color1, color2] = frostingColors[color];
+  }
 
-  const [color1, color2] =
-    !!color && frostingColors[color]
-      ? frostingColors[color]
-      : ["gray", "lightgray"];
   return (
-    <svg viewBox="0 0 188 188" data-testid="frosting" color={color}>
+    <svg
+      viewBox="0 0 188 188"
+      data-testid="frosting"
+      // test for this 👇👇
+      color={color}
+      // test for this 👆👆
+    >
       <defs>
         <radialGradient
           id={`radialGradient-${color}`}
