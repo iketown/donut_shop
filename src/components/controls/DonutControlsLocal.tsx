@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import DonutControls from "./DonutControls";
+
 const DonutControlsLocal = () => {
-  return <DonutControls />;
+  const [glazeFlavor, setGlazeFlavor] = useState("");
+
+  return (
+    <DonutControls
+      {...{
+        glazeFlavor,
+        setGlazeFlavor,
+      }}
+    />
+  );
 };
 
 export default DonutControlsLocal;

@@ -1,5 +1,5 @@
 import React from "react";
-import DonutControls from "../components/controls/DonutControls";
+import DonutControlsLocal from "../components/controls/DonutControlsLocal";
 import { Container } from "@material-ui/core";
 
 const LocalStatePage = () => {
@@ -12,7 +12,7 @@ const LocalStatePage = () => {
         marginTop: "2rem",
       }}
     >
-      <DonutControls />
+      <DonutControlsLocal />
     </Container>
   );
 };
