@@ -1,9 +1,11 @@
 import { Button, Container, Grid, Typography } from "@material-ui/core";
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
 import Donut from "../components/Donut";
 import { routes } from "../constants/routes";
-import { getRandomDonut } from "../constants/donutOptions";
+import getRandomDonut from "../helpers/getRandomDonut";
+
 const HomePage = () => {
   const { push } = useHistory();
 
