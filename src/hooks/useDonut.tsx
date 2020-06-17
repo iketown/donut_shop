@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getRandomDonut } from "../constants/donutOptions";
+import getRandomDonut from "../helpers/getRandomDonut";
 
 export const useDonut = () => {
   const [glazeFlavor, setGlazeFlavor] = useState("");
