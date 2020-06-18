@@ -2,6 +2,10 @@ import React from "react";
 import { render } from "@testing-library/react";
 import user from "@testing-library/user-event";
 import DonutControlsLocal from "./DonutControlsLocal";
+import getRandomDonut from "../../helpers/getRandomDonut";
+
+jest.mock("../../helpers/getRandomDonut");
+const fakeGetRandomDonut = getRandomDonut as jest.Mock<Donut>;
 
 test("glaze radio buttons work", () => {
   const { getByLabelText, getByTestId, queryByTestId, debug } = render(
@@ -50,4 +54,30 @@ test("frosting select is working", () => {
 
   user.selectOptions(frostingSelect, "brown");
   expect(frosting).toHaveAttribute("color", "brown");
+});
+
+test("random button works", () => {
+  const { getByText, getByTestId, queryByTestId, debug } = render(
+    <DonutControlsLocal />
+  );
+  const randomButton = getByText(/random/i);
+
+  fakeGetRandomDonut
+    .mockReturnValueOnce({
+      frostingColor: "pink",
+      glazeFlavor: "chocolate",
+      sprinkles: true,
+    })
+    .mockReturnValueOnce({
+      frostingColor: "blue",
+      glazeFlavor: "strawberry",
+      sprinkles: false,
+    });
+
+  user.click(randomButton);
+  expect(getByTestId("frosting")).toHaveAttribute("color", "pink");
+  expect(getByTestId("glaze")).toHaveAttribute("color", "chocolate");
+  user.click(randomButton);
+  expect(getByTestId("frosting")).toHaveAttribute("color", "blue");
+  expect(getByTestId("glaze")).toHaveAttribute("color", "strawberry");
 });
