@@ -8,7 +8,7 @@ jest.mock("../../helpers/getRandomDonut");
 const fakeGetRandomDonut = getRandomDonut as jest.Mock<Donut>;
 
 test("glaze radio buttons work", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
+  const { getByLabelText, getByTestId, queryByTestId } = render(
     <DonutControlsLocal />
   );
   const chocolateRadio = getByLabelText(/chocolate/i);
@@ -25,9 +25,7 @@ test("glaze radio buttons work", () => {
 });
 
 test("sprinkles checkbox is working", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
-    <DonutControlsLocal />
-  );
+  const { getByLabelText, queryByTestId } = render(<DonutControlsLocal />);
   const sprinklesCheckbox = getByLabelText(/sprinkles/i);
 
   expect(queryByTestId("sprinkles")).toBeFalsy();
@@ -38,9 +36,7 @@ test("sprinkles checkbox is working", () => {
 });
 
 test("frosting select is working", () => {
-  const { getByLabelText, getByTestId, queryByTestId, debug } = render(
-    <DonutControlsLocal />
-  );
+  const { getByLabelText, getByTestId } = render(<DonutControlsLocal />);
   const frostingSelect = getByLabelText(/frosting/i);
   const frosting = getByTestId("frosting");
   user.selectOptions(frostingSelect, "blue");
@@ -57,9 +53,7 @@ test("frosting select is working", () => {
 });
 
 test("random button works", () => {
-  const { getByText, getByTestId, queryByTestId, debug } = render(
-    <DonutControlsLocal />
-  );
+  const { getByText, getByTestId } = render(<DonutControlsLocal />);
   const randomButton = getByText(/random/i);
 
   fakeGetRandomDonut
